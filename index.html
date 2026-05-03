@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantam Core | Game & App Development Studio</title>
+    <meta name="description" content="Quantam Core is an emerging game development and mobile application company based in Bongaon, West Bengal, India.">
+    <style>
+        /* CSS resets and base variables */
+        :root {
+            --bg-color: #0d0d12;
+            --surface-color: #1a1a24;
+            --primary-color: #00e5ff;
+            --secondary-color: #b000ff;
+            --text-main: #f0f0f5;
+            --text-muted: #a0a0b5;
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            --glow: 0 0 20px rgba(0, 229, 255, 0.4);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        a:hover {
+            color: #fff;
+            text-shadow: var(--glow);
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 13, 18, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container img {
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5%;
+            background-image: url('Asset/company%20bannar%20or%20header.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(13, 13, 18, 0.5), var(--bg-color));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff, var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-text {
+            background: var(--surface-color);
+            padding: 3.5rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .about-text h3 {
+            color: #fff;
+            font-size: 1.8rem;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .portfolio-item {
+            background: var(--surface-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 229, 255, 0.15);
+            border-color: rgba(0, 229, 255, 0.3);
+        }
+
+        .portfolio-media.logo-thumbnail {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+        }
+
+        .portfolio-media.logo-thumbnail img {
+            max-width: 160px;
+            max-height: 160px;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            object-fit: contain;
+            transition: transform 0.6s ease;
+        }
+
+        .portfolio-item:hover .portfolio-media.logo-thumbnail img {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .portfolio-info {
+            padding: 2rem;
+        }
+
+        .portfolio-info h3 {
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+        
+        .portfolio-info p.click-hint {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.85); 
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background-color: var(--surface-color);
+            margin: 5% auto; 
+            padding: 0;
+            border: 1px solid rgba(255,255,255,0.1);
+            width: 90%;
+            max-width: 800px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.9);
+            animation: modalFadeIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+        }
+
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(50px) scale(0.95);}
+            to {opacity: 1; transform: translateY(0) scale(1);}
+        }
+
+        .close-modal {
+            color: #fff;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .close-modal:hover {
+            background: var(--primary-color);
+            color: #000;
+            transform: rotate(90deg);
+        }
+
+        .modal-preview {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+            background-color: #050508;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .modal-info {
+            padding: 2.5rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .modal-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            flex-shrink: 0;
+        }
+
+        .modal-text-content h3 {
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .modal-text-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Team Section */
+        .team-photo-wrapper {
+            margin-bottom: 5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .team-photo-wrapper img {
+            max-width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .team-photo-wrapper img:hover {
+            transform: scale(1.02);
+        }
+
+        .founder {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            background: rgba(26, 26, 36, 0.4);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.02);
+        }
+
+        .founder.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .founder-photo {
+            flex: 0 0 400px;
+            position: relative;
+        }
+
+        .founder-photo img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            object-fit: cover;
+            aspect-ratio: 4/5;
+        }
+
+        .founder-photo img:hover {
+            transform: scale(1.03) translateY(-10px);
+            box-shadow: 0 25px 45px rgba(0, 229, 255, 0.2);
+        }
+
+        .founder-info {
+            flex: 1;
+        }
+
+        .founder-info h3 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-info h4 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--surface-color), #050508);
+            text-align: center;
+            padding: 6rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.03);
+            padding: 3rem;
+            border-radius: 20px;
+            min-width: 280px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.08);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(0, 229, 255, 0.1);
+        }
+
+        .contact-card i {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .contact-card h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-card p, .contact-card a {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: #000;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        @media (max-width: 992px) {
+            .founder, .founder.reverse {
+                flex-direction: column;
+                text-align: center;
+                gap: 2.5rem;
+            }
+            .founder-photo {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 400px;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            section {
+                padding: 4rem 5%;
+            }
+            .modal-info {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+    <!-- Simple Icons for Contact -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="Asset/Company%20logo.jpeg" alt="Quantam Core Logo">
+            <h2 style="margin:0; font-size: 1.5rem; background: #fff; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Quantam Core</h2>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#portfolio">Games</a>
+            <a href="#team">Team</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1 style="font-family: 'Outfit', sans-serif;">Quantam Core</h1>
+            <p>Pushing the Boundaries of Interactive Entertainment</p>
+        </div>
+    </header>
+
+    <!-- SECTION ORDER: Games -> Team -> About -> Contact -->
+
+    <section id="portfolio">
+        <h2>Games & Applications</h2>
+        <div class="portfolio-grid">
+            <!-- Carrom King -->
+            <div class="portfolio-item" 
+                 data-title="Carrom King" 
+                 data-desc="Experience the classic board game with stunning graphics and smooth gameplay. Challenge friends and dominate the board!" 
+                 data-logo="Asset/carrom%20king%20game%20logo%20.png" 
+                 data-preview="Asset/Carrom%20King%20gameplay%20.jpeg">
+                <div class="portfolio-media logo-thumbnail">
+                    <img src="Asset/carrom%20king%20game%20logo%20.png" alt="Carrom King Logo">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Carrom King</h3>
+                    <p class="click-hint">Click to view Details</p>
+                </div>
+            </div>
+
+            <!-- Fruit Strike -->
+            <div class="portfolio-item" 
+                 data-title="Fruit Strike" 
+                 data-desc="Slice and dice your way through juicy fruits in this fast-paced action game. Can you beat the high score?" 
+                 data-logo="Asset/Fruit%20Strike%20game%20logo.png" 
+                 data-preview="Asset/Fruit%20strike%20gameplay.jpeg">
+                <div class="portfolio-media logo-thumbnail">
+                    <img src="Asset/Fruit%20Strike%20game%20logo.png" alt="Fruit Strike Logo">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Fruit Strike</h3>
+                    <p class="click-hint">Click to view Details</p>
+                </div>
+            </div>
+
+            <!-- Shadow Strike -->
+            <div class="portfolio-item" 
+                 data-title="Shadow Strike" 
+                 data-desc="Immersive action and thrilling combat await in our premier action title. Step into the shadows and strike." 
+                 data-logo="Asset/Shadow%20strike%20game%20logo.png" 
+                 data-preview="Asset/Shadow%20strike%20gameplay%20.jpeg">
+                <div class="portfolio-media logo-thumbnail">
+                    <img src="Asset/Shadow%20strike%20game%20logo.png" alt="Shadow Strike Logo">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Shadow Strike</h3>
+                    <p class="click-hint">Click to view Details</p>
+                </div>
+            </div>
+
+            <!-- Editing Master Pro -->
+            <div class="portfolio-item" 
+                 data-title="Editing Master Pro" 
+                 data-desc="Professional grade editing tools right in the palm of your hand. Create masterpieces with ease and precision." 
+                 data-logo="Asset/Editing%20Master%20pro%20app%20logo%20.png" 
+                 data-preview="Asset/Editing%20Master%20pro%20app%20previews.jpeg">
+                <div class="portfolio-media logo-thumbnail">
+                    <img src="Asset/Editing%20Master%20pro%20app%20logo%20.png" alt="Editing Master Pro Logo">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Editing Master Pro</h3>
+                    <p class="click-hint">Click to view Details</p>
+                </div>
+            </div>
+
+            <!-- Tycoon Empire -->
+            <div class="portfolio-item" 
+                 data-title="Tycoon Empire" 
+                 data-desc="Build your business empire from the ground up! Manage resources and grow your startup into a global powerhouse." 
+                 data-logo="Asset/Tycoon%20Empire%20gae%20logo.png" 
+                 data-preview="Asset/Tycoon%20Empire%20gameplay.jpeg">
+                <div class="portfolio-media logo-thumbnail">
+                    <img src="Asset/Tycoon%20Empire%20gae%20logo.png" alt="Tycoon Empire Logo">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Tycoon Empire</h3>
+                    <p class="click-hint">Click to view Details</p>
+                </div>
+            </div>
+
+            <!-- Nexus Boost -->
+            <div class="portfolio-item" 
+                 data-title="Nexus Boost" 
+                 data-desc="Optimize your device's performance, clear junk files, and boost your battery life with Nexus Boost." 
+                 data-logo="Asset/Nexus%20boost%20app%20logo.png" 
+                 data-preview="Asset/Nexux%20Boost%20app%20preview.jpeg">
+                <div class="portfolio-media logo-thumbnail">
+                    <img src="Asset/Nexus%20boost%20app%20logo.png" alt="Nexus Boost Logo">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Nexus Boost</h3>
+                    <p class="click-hint">Click to view Details</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <h2>Meet The Founders</h2>
+        
+        <div class="team-photo-wrapper">
+            <img src="Asset/Team.jpeg" alt="Quantam Core Founders Team">
+        </div>
+
+        <!-- Pradipta Pal Part 1 -->
+        <div class="founder">
+            <div class="founder-photo">
+                <a href="https://www.instagram.com/prodipto_pal/" target="_blank" rel="noopener noreferrer">
+                    <img src="Asset/Pradipta%20pal%201.jpeg" alt="Pradipta Pal - Founder & CEO">
+                </a>
+            </div>
+            <div class="founder-info">
+                <a href="https://www.instagram.com/prodipto_pal/" target="_blank" rel="noopener noreferrer">
+                    <h3>Pradipta Pal</h3>
+                </a>
+                <h4>Founder, Owner & CEO</h4>
+                <p>Pradipta Pal is the visionary founder, owner, and Chief Executive Officer of Quantam Core, driving the company’s strategic direction and long-term innovation goals. As the primary architect behind the organization, he has played a central role in shaping its identity as a forward-thinking gaming and application development studio. With a strong foundation in software development and creative leadership, he combines technical expertise with entrepreneurial mindset to push the boundaries of interactive digital experiences.</p>
+            </div>
+        </div>
+
+        <!-- Pradipta Pal Part 2 -->
+        <div class="founder reverse">
+            <div class="founder-photo">
+                <a href="https://www.instagram.com/prodipto_pal/" target="_blank" rel="noopener noreferrer">
+                    <img src="Asset/pradipta%20pal%202.jpeg" alt="Pradipta Pal - Assistant Manager">
+                </a>
+            </div>
+            <div class="founder-info">
+                <p>Beyond his executive leadership, Prodipto also actively contributes to operational management as an assistant manager, ensuring that development pipelines, creative processes, and team coordination remain efficient and aligned with the company’s vision. His hands-on involvement in both leadership and production enables Quantam Core to maintain high standards of quality while continuously evolving in a competitive industry.</p>
+            </div>
+        </div>
+
+        <!-- Tanay Halder -->
+        <div class="founder">
+            <div class="founder-photo">
+                <img src="Asset/tanay%20halder.jpeg" alt="Tanay Halder - Manager & Head of Finance">
+            </div>
+            <div class="founder-info">
+                <h3>Tanay Halder</h3>
+                <h4>Manager & Head of Finance</h4>
+                <p>Tanay Halder serves as the manager and leads the finance department at Quantam Core, where he is responsible for overseeing financial planning, budgeting, and resource allocation. His role is critical in maintaining the company’s financial stability and ensuring that all projects are executed within sustainable economic frameworks. With a disciplined approach to management, he supports the company’s growth by aligning financial strategies with business objectives and operational needs.</p>
+            </div>
+        </div>
+
+        <!-- Subhrojoti -->
+        <div class="founder reverse">
+            <div class="founder-photo">
+                <img src="Asset/subhrojoty.jpeg" alt="Subhrojoti - Executive Producer, Editor & Music Director">
+            </div>
+            <div class="founder-info">
+                <h3>Subhrojoti</h3>
+                <h4>Executive Producer, Editor & Music Director</h4>
+                <p>Subhrojoti holds the position of executive producer at Quantam Core, contributing significantly to the creative and production aspects of the company’s projects. Specializing in editing and music direction, he plays a key role in enhancing the overall quality and immersive experience of games and applications. His creative vision and technical skills ensure that each project delivers a polished and engaging final product, strengthening the company’s artistic identity.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about-text">
+            <h3>About Quantam Core</h3>
+            <p>Quantam Core is an emerging game development and mobile application company based in Bongaon, West Bengal, India. Founded on September 17, 2025, the company is driven by a passion for innovation, creativity, and technology. With a strong focus on delivering engaging digital experiences, Quantam Core specializes in developing high-quality games using the Unity engine, alongside modern mobile applications built with advanced development tools such as Android Studio and Google Antigravity.</p>
+            <p>The company was established with the ambition to create impactful and widely recognized digital products that resonate with global audiences. By combining technical expertise with creative storytelling, Quantam Core aims to push the boundaries of interactive entertainment. The team is dedicated to continuous learning, experimentation, and improvement, ensuring that every project reflects both quality and originality.</p>
+            
+            <h3 style="margin-top: 3rem;">Our Vision</h3>
+            <p>The vision of Quantam Core is to become a globally recognized name in the gaming and application development industry. The company strives to create innovative, immersive, and high-performance digital experiences that not only entertain but also inspire users worldwide.</p>
+            <p>Quantam Core envisions building a strong portfolio of successful games and applications that stand out in competitive markets, while also establishing a sustainable and scalable business model. Through dedication, creativity, and technological excellence, the goal is to transform ideas into powerful digital realities and contribute meaningfully to the future of interactive media.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p style="color: #fff; font-size: 1.2rem; margin-bottom: 2rem;">Get in touch with us for business inquiries, support, or just to say hi.</p>
+        
+        <div class="contact-methods">
+            <div class="contact-card">
+                <i class="fa-solid fa-envelope"></i>
+                <h4>Email</h4>
+                <a href="mailto:quantamcorestudio@gmail.com">quantamcorestudio@gmail.com</a>
+            </div>
+            
+            <div class="contact-card">
+                <i class="fa-solid fa-phone"></i>
+                <h4>Mobile</h4>
+                <a href="tel:6297550231">6297550231</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Quantam Core Studio. All rights reserved.</p>
+    </footer>
+
+    <!-- Game/App Details Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modalPreview" src="" alt="Gameplay Preview" class="modal-preview">
+            <div class="modal-info">
+                <img id="modalLogo" src="" alt="Game Logo" class="modal-logo">
+                <div class="modal-text-content">
+                    <h3 id="modalTitle">Game Title</h3>
+                    <p id="modalDesc">Game Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Reveal elements on scroll
+            const revealElements = document.querySelectorAll('.founder, .portfolio-item, .about-text');
+            const revealCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+            revealElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(40px)';
+                el.style.transition = `opacity 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) ${index % 2 === 0 ? '0s' : '0.1s'}, transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) ${index % 2 === 0 ? '0s' : '0.1s'}`;
+                revealObserver.observe(el);
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Modal Logic
+            const modal = document.getElementById("gameModal");
+            const btnClose = document.querySelector(".close-modal");
+            const items = document.querySelectorAll(".portfolio-item");
+
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    document.getElementById("modalPreview").src = item.getAttribute('data-preview');
+                    document.getElementById("modalLogo").src = item.getAttribute('data-logo');
+                    document.getElementById("modalTitle").innerText = item.getAttribute('data-title');
+                    document.getElementById("modalDesc").innerText = item.getAttribute('data-desc');
+                    modal.style.display = "block";
+                });
+            });
+
+            btnClose.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
