@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Quantam Core</title>
+    <style>
+        /* CSS resets and base variables */
+        :root {
+            --bg-color: #0d0d12;
+            --surface-color: #1a1a24;
+            --primary-color: #00e5ff;
+            --secondary-color: #b000ff;
+            --text-main: #f0f0f5;
+            --text-muted: #a0a0b5;
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            --glow: 0 0 20px rgba(0, 229, 255, 0.4);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        a:hover {
+            color: #fff;
+            text-shadow: var(--glow);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 2rem 0;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 13, 18, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container img {
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Content Container */
+        .content-container {
+            padding: 8rem 5% 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--surface-color);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+            margin-top: 6rem;
+            margin-bottom: 4rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: #000;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .content-container {
+                padding: 6rem 5% 3rem;
+                margin-top: 5rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="Asset/Company%20logo.jpeg" alt="Quantam Core Logo">
+            <h2 style="margin:0; font-size: 1.5rem; background: #fff; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Quantam Core</h2>
+        </div>
+        <div class="nav-links">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#portfolio">Games</a>
+            <a href="index.html#team">Team</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <h1>Privacy Policy for Quantam Core</h1>
+        <p><strong>Effective Date:</strong> May 9, 2026</p>
+
+        <p>Welcome to <a href="https://quantamcorestudio.github.io/quantam-core-website/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Quantam Core</a>. This Privacy Policy explains how Quantam Core collects, uses, stores, and protects user information when using our games, mobile applications, websites, and related services.</p>
+
+        <p>By using our applications or services, you agree to the practices described in this Privacy Policy.</p>
+
+        <hr>
+
+        <h2>1. Company Information</h2>
+        <p><strong>Company Name:</strong> Quantam Core<br>
+        <strong>Location:</strong> Bongaon<br>
+        <strong>Founders:</strong> Prodipto Pal and Tanay Halder</p>
+        <p>We develop and publish mobile games and applications for Android and other platforms.</p>
+
+        <hr>
+
+        <h2>2. Information We Collect</h2>
+        <p>We may collect different types of information depending on how users interact with our applications and services.</p>
+
+        <h3>A. Personal Information</h3>
+        <p>We generally do not collect personally identifiable information unless voluntarily provided by the user.</p>
+        <p>This may include:</p>
+        <ul>
+            <li>Name</li>
+            <li>Email address</li>
+            <li>Contact information</li>
+            <li>Feedback or support messages</li>
+        </ul>
+
+        <h3>B. Device and Technical Information</h3>
+        <p>Our applications may automatically collect certain technical data, including:</p>
+        <ul>
+            <li>Device model</li>
+            <li>Operating system version</li>
+            <li>IP address</li>
+            <li>Language settings</li>
+            <li>App version</li>
+            <li>Mobile carrier</li>
+            <li>Crash logs and diagnostics</li>
+            <li>Device identifiers such as Advertising ID</li>
+        </ul>
+
+        <h3>C. Usage Information</h3>
+        <p>We may collect information about how users interact with our apps, including:</p>
+        <ul>
+            <li>Gameplay progress</li>
+            <li>Session duration</li>
+            <li>Features used</li>
+            <li>In-app actions</li>
+            <li>Ad interactions</li>
+            <li>Reward claim activities</li>
+        </ul>
+
+        <hr>
+
+        <h2>3. Advertising Services</h2>
+        <p>Our applications may display advertisements to support free services and game development.</p>
+        <p>We may use third-party advertising services including:</p>
+        <ul>
+            <li><a href="https://admob.google.com/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Google AdMob</a></li>
+            <li>Other advertising networks in the future</li>
+        </ul>
+        <p>These services may collect:</p>
+        <ul>
+            <li>Advertising ID</li>
+            <li>Device information</li>
+            <li>Approximate location</li>
+            <li>Ad interaction data</li>
+        </ul>
+        <p>This information helps deliver relevant advertisements and measure advertising performance.</p>
+        <p>Users can reset or limit ad personalization through their device settings.</p>
+
+        <hr>
+
+        <h2>4. Analytics Services</h2>
+        <p>We may use analytics tools to understand app performance and improve user experience.</p>
+        <p>Possible analytics providers include:</p>
+        <ul>
+            <li><a href="https://firebase.google.com/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Google Firebase</a></li>
+            <li><a href="https://analytics.google.com/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Google Analytics</a></li>
+        </ul>
+        <p>These services may collect anonymous usage statistics and technical information.</p>
+
+        <hr>
+
+        <h2>5. How We Use Information</h2>
+        <p>We use collected information for purposes including:</p>
+        <ul>
+            <li>Improving app performance</li>
+            <li>Fixing bugs and crashes</li>
+            <li>Enhancing gameplay experience</li>
+            <li>Showing advertisements</li>
+            <li>Preventing fraud and abuse</li>
+            <li>Providing customer support</li>
+            <li>Analyzing user engagement</li>
+            <li>Developing future games and applications</li>
+        </ul>
+
+        <hr>
+
+        <h2>6. Data Sharing</h2>
+        <p>We do not sell users’ personal information.</p>
+        <p>However, information may be shared with trusted third-party services that help operate our applications, including:</p>
+        <ul>
+            <li>Advertising partners</li>
+            <li>Analytics providers</li>
+            <li>Cloud hosting services</li>
+            <li>Legal authorities if required by law</li>
+        </ul>
+        <p>Third parties must process information according to applicable privacy and security standards.</p>
+
+        <hr>
+
+        <h2>7. Children’s Privacy</h2>
+        <p>Our applications may be used by general audiences.</p>
+        <p>We do not knowingly collect personal information from children under the age required by local laws without parental consent.</p>
+        <p>If a parent or guardian believes a child has provided personal information, they may contact us for removal of the data.</p>
+
+        <hr>
+
+        <h2>8. Data Security</h2>
+        <p>We implement reasonable security measures to protect information against:</p>
+        <ul>
+            <li>Unauthorized access</li>
+            <li>Data loss</li>
+            <li>Misuse</li>
+            <li>Alteration</li>
+            <li>Disclosure</li>
+        </ul>
+        <p>However, no internet-based service can guarantee complete security.</p>
+
+        <hr>
+
+        <h2>9. User Rights</h2>
+        <p>Depending on local laws, users may have rights to:</p>
+        <ul>
+            <li>Access their data</li>
+            <li>Request correction of information</li>
+            <li>Request deletion of data</li>
+            <li>Withdraw consent</li>
+            <li>Restrict certain data processing</li>
+        </ul>
+        <p>Users may contact us regarding privacy-related requests.</p>
+
+        <hr>
+
+        <h2>10. Third-Party Links and Services</h2>
+        <p>Our applications or website may contain links to third-party services.</p>
+        <p>We are not responsible for the privacy practices or content of external websites or services.</p>
+        <p>Users should review the privacy policies of those third parties separately.</p>
+
+        <hr>
+
+        <h2>11. International Data Transfers</h2>
+        <p>Information collected through our applications may be processed and stored on servers located outside the user’s country.</p>
+        <p>By using our services, users consent to such transfers where permitted by law.</p>
+
+        <hr>
+
+        <h2>12. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time.</p>
+        <p>Changes will be reflected by updating the “Effective Date” above.</p>
+        <p>Users are encouraged to review this Privacy Policy periodically.</p>
+
+        <hr>
+
+        <h2>13. Contact Information</h2>
+        <p>For privacy-related questions, support, or concerns, users may contact:</p>
+        <p><strong>Quantam Core</strong><br>
+        Website: <a href="https://quantamcorestudio.github.io/quantam-core-website/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Quantam Core Official Website</a><br>
+        Email: <strong><a href="mailto:quantamcoreofficial@gmail.com">quantamcoreofficial@gmail.com</a></strong></p>
+
+        <hr>
+
+        <h2>14. Consent</h2>
+        <p>By downloading, installing, or using our applications, users agree to this Privacy Policy and consent to the collection and use of information as described herein.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Quantam Core Studio. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
