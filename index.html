@@ -516,6 +516,267 @@
                 text-align: center;
             }
         }
+
+        /* 3-Dot Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0 0.5rem;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .dropbtn:hover {
+            color: var(--primary-color);
+            text-shadow: var(--glow);
+        }
+
+        .dropdown-content {
+            display: block;
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: var(--surface-color);
+            min-width: 180px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            z-index: 1001;
+            overflow: hidden;
+            margin-top: 0.5rem;
+            transform: translateY(10px);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .dropdown.active .dropdown-content {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            color: var(--text-muted) !important;
+            padding: 0.8rem 1.2rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: none !important;
+            letter-spacing: 0.5px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255,255,255,0.05);
+            color: var(--primary-color) !important;
+            text-shadow: none !important;
+        }
+
+        /* Gallery Section Styles */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            background: rgba(26, 26, 36, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            color: #000;
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            box-shadow: var(--glow);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(13, 13, 18, 0.9) 10%, rgba(13, 13, 18, 0.2));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 229, 255, 0.15);
+            border-color: rgba(0, 229, 255, 0.3);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item-overlay h4 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            transform: translateY(10px);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .gallery-item-overlay p {
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0;
+            transform: translateY(10px);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0.05s;
+        }
+
+        .gallery-item:hover .gallery-item-overlay h4,
+        .gallery-item:hover .gallery-item-overlay p {
+            transform: translateY(0);
+        }
+
+        /* Lightbox Modal Styles */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            inset: 0;
+            background-color: rgba(5, 5, 8, 0.95);
+            backdrop-filter: blur(15px);
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.08);
+            animation: scaleIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .lightbox-caption {
+            color: var(--text-main);
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .close-lightbox:hover {
+            background: var(--primary-color);
+            color: #000;
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-modal {
+                padding: 1rem;
+            }
+            .close-lightbox {
+                top: 10px;
+                right: 10px;
+                background: rgba(0,0,0,0.6);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links .dropdown {
+                display: none; /* Keep dropdown aligned with standard nav links on mobile collapse */
+            }
+        }
+        /* End of styles additions */
+        }
     </style>
     <!-- Simple Icons for Contact -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -531,10 +792,18 @@
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#portfolio">Games</a>
+            <a href="#gallery">Gallery</a>
             <a href="#team">Team</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
-            <a href="privacy-policy.html">Privacy Policy</a>
+            <div class="dropdown">
+                <button class="dropbtn" id="dropdownBtn" aria-label="More Menu">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+                <div class="dropdown-content" id="dropdownContent">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -642,70 +911,129 @@
         </div>
     </section>
 
+    <section id="gallery">
+        <h2>Studio Gallery</h2>
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="studio">Studio</button>
+            <button class="filter-btn" data-filter="games">Games</button>
+        </div>
+        <div class="gallery-grid">
+            <!-- Item 1: Prodipto relocated photo -->
+            <div class="gallery-item" data-category="studio" data-src="Asset/pradipta%20pal%202.jpeg" data-caption="Co-Founder Prodipto Pal analyzing project workflows and development cycles.">
+                <img src="Asset/pradipta%20pal%202.jpeg" alt="Prodipto Pal - Creative strategist working">
+                <div class="gallery-item-overlay">
+                    <h4>Prodipto Pal - Creative Workflow</h4>
+                    <p>Studio</p>
+                </div>
+            </div>
+            <!-- Item 2: Workspace Setup -->
+            <div class="gallery-item" data-category="studio" data-src="Asset/setup.jpeg" data-caption="Our state-of-the-art gaming and application development workspace where concepts turn into digital experiences.">
+                <img src="Asset/setup.jpeg" alt="Quantam Core Creative Space">
+                <div class="gallery-item-overlay">
+                    <h4>Quantam Core Creative Space</h4>
+                    <p>Studio</p>
+                </div>
+            </div>
+            <!-- Item 3: Shadow Strike -->
+            <div class="gallery-item" data-category="games" data-src="Asset/Shadow%20strike%20gameplay%20.jpeg" data-caption="Intense shadow tactical combat sequences from our action title Shadow Strike.">
+                <img src="Asset/Shadow%20strike%20gameplay%20.jpeg" alt="Shadow Strike gameplay action">
+                <div class="gallery-item-overlay">
+                    <h4>Shadow Strike Combat</h4>
+                    <p>Games</p>
+                </div>
+            </div>
+            <!-- Item 4: Carrom King -->
+            <div class="gallery-item" data-category="games" data-src="Asset/Carrom%20King%20gameplay%20.jpeg" data-caption="Immersive multiplayer interface and board dynamics in Carrom King.">
+                <img src="Asset/Carrom%20King%20gameplay%20.jpeg" alt="Carrom King board layout">
+                <div class="gallery-item-overlay">
+                    <h4>Carrom King Board</h4>
+                    <p>Games</p>
+                </div>
+            </div>
+            <!-- Item 5: Fruit Strike -->
+            <div class="gallery-item" data-category="games" data-src="Asset/Fruit%20strike%20gameplay.jpeg" data-caption="High-paced juicy slicing combos and gameplay action in Fruit Strike.">
+                <img src="Asset/Fruit%20strike%20gameplay.jpeg" alt="Fruit Strike slicing action">
+                <div class="gallery-item-overlay">
+                    <h4>Fruit Strike Combos</h4>
+                    <p>Games</p>
+                </div>
+            </div>
+            <!-- Item 6: Tycoon Empire -->
+            <div class="gallery-item" data-category="games" data-src="Asset/Tycoon%20Empire%20gameplay.jpeg" data-caption="Detailed resource and building management interfaces in Tycoon Empire.">
+                <img src="Asset/Tycoon%20Empire%20gameplay.jpeg" alt="Tycoon Empire startup simulation">
+                <div class="gallery-item-overlay">
+                    <h4>Tycoon Empire Simulation</h4>
+                    <p>Games</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Lightbox Modal -->
+    <div id="galleryLightbox" class="lightbox-modal">
+        <div class="lightbox-content">
+            <span class="close-lightbox">&times;</span>
+            <img id="lightboxImage" src="" alt="Enlarged gallery view" class="lightbox-img">
+            <div id="lightboxCaption" class="lightbox-caption">Caption text goes here</div>
+        </div>
+    </div>
+
     <section id="team">
-        <h2>Meet The Founders</h2>
+        <h2>Meet The Team</h2>
         
         <div class="team-photo-wrapper">
-            <img src="Asset/Team.jpeg" alt="Quantam Core Founders Team">
+            <img src="Asset/Team.jpeg" alt="Quantam Core Studio Team">
         </div>
 
-        <!-- Pradipta Pal Part 1 -->
+        <!-- Prodipto Pal -->
         <div class="founder">
             <div class="founder-photo">
                 <a href="https://www.instagram.com/prodipto_pal/" target="_blank" rel="noopener noreferrer">
-                    <img src="Asset/Pradipta%20pal%201.jpeg" alt="Pradipta Pal - Founder & CEO">
+                    <img src="Asset/Pradipta%20pal%201.jpeg" alt="Prodipto Pal - Co-Founder, Lead Game Developer & Creative Strategist">
                 </a>
             </div>
             <div class="founder-info">
                 <a href="https://www.instagram.com/prodipto_pal/" target="_blank" rel="noopener noreferrer">
-                    <h3>Pradipta Pal</h3>
+                    <h3>Prodipto Pal</h3>
                 </a>
-                <h4>Founder, Owner & CEO</h4>
-                <p>Pradipta Pal is the visionary founder, owner, and Chief Executive Officer of Quantam Core, driving the company’s strategic direction and long-term innovation goals. As the primary architect behind the organization, he has played a central role in shaping its identity as a forward-thinking gaming and application development studio. With a strong foundation in software development and creative leadership, he combines technical expertise with entrepreneurial mindset to push the boundaries of interactive digital experiences.</p>
-            </div>
-        </div>
-
-        <!-- Pradipta Pal Part 2 -->
-        <div class="founder reverse">
-            <div class="founder-photo">
-                <a href="https://www.instagram.com/prodipto_pal/" target="_blank" rel="noopener noreferrer">
-                    <img src="Asset/pradipta%20pal%202.jpeg" alt="Pradipta Pal - Assistant Manager">
-                </a>
-            </div>
-            <div class="founder-info">
-                <p>Beyond his executive leadership, Prodipto also actively contributes to operational management as an assistant manager, ensuring that development pipelines, creative processes, and team coordination remain efficient and aligned with the company’s vision. His hands-on involvement in both leadership and production enables Quantam Core to maintain high standards of quality while continuously evolving in a competitive industry.</p>
+                <h4>Co-Founder, Lead Game Developer & Creative Strategist</h4>
+                <p>Prodipto Pal is a co-founder of Quantam Core and one of the primary driving forces behind the company’s game and application development. He plays a central role in designing, developing, and managing projects using modern development technologies and AI-assisted workflows.</p>
+                <p>His contributions include gameplay systems, application functionality, creative planning, feature implementation, and overall product development. With a strong focus on innovation and execution, he helps transform ideas into interactive digital experiences while maintaining the creative direction of the studio.</p>
             </div>
         </div>
 
         <!-- Tanay Halder -->
-        <div class="founder">
+        <div class="founder reverse">
             <div class="founder-photo">
                 <a href="https://www.instagram.com/tanay.img?igsh=MWl0ZWZxa2J3cXFxOA==" target="_blank" rel="noopener noreferrer">
-                    <img src="Asset/tanay%20halder.jpeg" alt="Tanay Halder - Founding Member">
+                    <img src="Asset/tanay%20halder.jpeg" alt="Tanay Halder - Co-Founder, Technical Architect & Systems Developer">
                 </a>
             </div>
             <div class="founder-info">
                 <a href="https://www.instagram.com/tanay.img?igsh=MWl0ZWZxa2J3cXFxOA==" target="_blank" rel="noopener noreferrer">
                     <h3>Tanay Halder</h3>
                 </a>
-                <h4>Founding Member</h4>
-                <p>Tanay Halder serves as the manager and leads the finance department at Quantam Core, where he is responsible for overseeing financial planning, budgeting, and resource allocation. His role is critical in maintaining the company’s financial stability and ensuring that all projects are executed within sustainable economic frameworks. With a disciplined approach to management, he supports the company’s growth by aligning financial strategies with business objectives and operational needs.</p>
+                <h4>Co-Founder, Technical Architect & Systems Developer</h4>
+                <p>Tanay Halder is a co-founder of Quantam Core and is responsible for the technical architecture and system stability of the company’s projects. He specializes in backend systems, cloud technologies, cybersecurity, debugging, optimization, and development infrastructure.</p>
+                <p>He contributes heavily to solving technical challenges, improving application performance, fixing critical issues, and building scalable systems that support the company’s games and applications. His experience in programming, automation, and security helps ensure reliable and efficient project execution across the studio.</p>
             </div>
         </div>
 
-        <!-- Subhrojoti -->
-        <div class="founder reverse">
+        <!-- Shubhrajyoti -->
+        <div class="founder">
             <div class="founder-photo">
                 <a href="https://www.instagram.com/subhrajoyti_official?igsh=MXh0dno1cmU2MDVleg==" target="_blank" rel="noopener noreferrer">
-                    <img src="Asset/subhrojoty.jpeg" alt="Subhrojoti - Executive Producer, Editor & Music Director">
+                    <img src="Asset/subhrojoty.jpeg" alt="Shubhrajyoti - Executive Producer, Creative Director & Brand Representative">
                 </a>
             </div>
             <div class="founder-info">
                 <a href="https://www.instagram.com/subhrajoyti_official?igsh=MXh0dno1cmU2MDVleg==" target="_blank" rel="noopener noreferrer">
-                    <h3>Subhrojoti</h3>
+                    <h3>Shubhrajyoti</h3>
                 </a>
-                <h4>Executive Producer, Editor & Music Director</h4>
-                <p>Subhrojoti holds the position of executive producer at Quantam Core, contributing significantly to the creative and production aspects of the company’s projects. Specializing in editing and music direction, he plays a key role in enhancing the overall quality and immersive experience of games and applications. His creative vision and technical skills ensure that each project delivers a polished and engaging final product, strengthening the company’s artistic identity.</p>
+                <h4>Executive Producer, Creative Director & Brand Representative</h4>
+                <p>Shubhrajyoti is responsible for the creative production and visual presentation of Quantam Core’s projects. He contributes to editing direction, promotional planning, creative presentation, and the overall artistic identity of the company.</p>
+                <p>He also represents Quantam Core in promotional campaigns and ad shoots, helping strengthen the company’s public image and brand presence. His creative involvement helps deliver polished, engaging, and professional experiences across both media and production.</p>
             </div>
         </div>
     </section>
@@ -763,8 +1091,8 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Reveal elements on scroll
-            const revealElements = document.querySelectorAll('.founder, .portfolio-item, .about-text');
+            // Reveal elements on scroll (extended to include new gallery-item class)
+            const revealElements = document.querySelectorAll('.founder, .portfolio-item, .about-text, .gallery-item');
             const revealCallback = (entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -796,7 +1124,23 @@
                 });
             });
 
-            // Modal Logic
+            // Navbar Dropdown Toggle Logic
+            const dropdown = document.querySelector('.dropdown');
+            const dropdownBtn = document.getElementById('dropdownBtn');
+
+            dropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+                if (dropdown.classList.contains('active')) {
+                    dropdown.classList.remove('active');
+                }
+            });
+
+            // Game/App Modal Logic
             const modal = document.getElementById("gameModal");
             const btnClose = document.querySelector(".close-modal");
             const items = document.querySelectorAll(".portfolio-item");
@@ -815,9 +1159,68 @@
                 modal.style.display = "none";
             }
 
+            // Gallery Category Filtering Logic
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button styling
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        const itemCategory = item.getAttribute('data-category');
+                        if (filterValue === 'all' || itemCategory === filterValue) {
+                            item.style.display = 'block';
+                            // Short timeout to allow browser layout and display to update before transition
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.9)';
+                            setTimeout(() => {
+                                if (item.style.opacity === '0') {
+                                    item.style.display = 'none';
+                                }
+                            }, 400);
+                        }
+                    });
+                });
+            });
+
+            // Gallery Lightbox Modal Logic
+            const lightbox = document.getElementById("galleryLightbox");
+            const lightboxImg = document.getElementById("lightboxImage");
+            const lightboxCap = document.getElementById("lightboxCaption");
+            const closeLightbox = document.querySelector(".close-lightbox");
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const imgSrc = item.getAttribute('data-src');
+                    const imgCaption = item.getAttribute('data-caption');
+                    
+                    lightboxImg.src = imgSrc;
+                    lightboxCap.innerText = imgCaption;
+                    lightbox.style.display = "flex";
+                });
+            });
+
+            closeLightbox.onclick = function() {
+                lightbox.style.display = "none";
+            }
+
+            // Close modal when clicking backgrounds
             window.onclick = function(event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
+                }
+                if (event.target == lightbox) {
+                    lightbox.style.display = "none";
                 }
             }
         });
