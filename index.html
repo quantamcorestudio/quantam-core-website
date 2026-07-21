@@ -1,596 +1,915 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<!-- Early Global Image Fallback Handler for GitHub Pages Case-Sensitivity & Spaces -->
-<script>
-    (function() {
-      window.addEventListener('error', function(e) {
-        if (e.target && e.target.tagName === 'IMG') {
-          var img = e.target;
-          var retryCount = parseInt(img.getAttribute('data-retry') || '0', 10);
-          if (retryCount >= 4) return;
-          img.setAttribute('data-retry', (retryCount + 1).toString());
-
-          var origSrc = img.getAttribute('src') || '';
-          var newSrc = origSrc;
-
-          if (retryCount === 0) {
-            // Retry 1: Toggle  <-> 
-            if (origSrc.indexOf('') === 0) newSrc = '' + origSrc.substring(7);
-            else if (origSrc.indexOf('') === 0) newSrc = '' + origSrc.substring(7);
-            else if (origSrc.indexOf('./') === 0) newSrc = './' + origSrc.substring(9);
-            else if (origSrc.indexOf('./') === 0) newSrc = './' + origSrc.substring(9);
-          } else if (retryCount === 1) {
-            // Retry 2: Toggle space <-> %20
-            if (origSrc.indexOf(' ') !== -1) newSrc = origSrc.replace(/ /g, '%20');
-            else if (origSrc.indexOf('%20') !== -1) newSrc = origSrc.replace(/%20/g, ' ');
-          } else if (retryCount === 2) {
-            // Retry 3: Toggle .jpeg <-> .jpg
-            if (origSrc.endsWith('.jpeg')) newSrc = origSrc.substring(0, origSrc.length - 5) + '.jpg';
-            else if (origSrc.endsWith('.jpg')) newSrc = origSrc.substring(0, origSrc.length - 4) + '.jpeg';
-          } else if (retryCount === 3) {
-            // Retry 4: Relative ./ prefix fallback
-            if (origSrc.indexOf('./') !== 0) newSrc = './' + origSrc;
-          }
-
-          if (newSrc && newSrc !== origSrc) {
-            img.src = newSrc;
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantam Core | Game & App Development Studio</title>
+    <meta name="description" content="Quantam Core is an emerging game development and mobile application company based in Bongaon, West Bengal, India.">
+    <style>
+        /* CSS resets and base variables */
+        :root {
+            --bg-color: #0d0d12;
+            --surface-color: #1a1a24;
+            --primary-color: #00e5ff;
+            --secondary-color: #b000ff;
+            --text-main: #f0f0f5;
+            --text-muted: #a0a0b5;
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            --glow: 0 0 20px rgba(0, 229, 255, 0.4);
         }
-      }, true);
-    })();
-  </script>
-<!-- Primary Meta Tags -->
-<title>Pradipta Pal | Software Developer, Game Developer, Entrepreneur &amp; B.Pharm Student</title>
-<meta content="Pradipta Pal | Software Developer, Game Developer, Entrepreneur &amp; B.Pharm Student" name="title"/>
-<meta content="Official website of Pradipta Pal (Pronounced 'Prodipto Pal'). Founder of Quantum Core Gaming Studio, B.Pharm student at Vidyasagar Pharmaceutical College, alumnus of Bongaon High School, and former founder of Blue Whale Store. Exploring software engineering, game engines, and pharmaceutical innovation." name="description"/>
-<meta content="Pradipta Pal, Prodipto Pal, Quantum Core Gaming Studio, Blue Whale Store, B.Pharm, Vidyasagar Pharmaceutical College, Bongaon High School, Software Developer, Game Developer, Entrepreneur, Unity Developer, Android Developer, Tanay Halder, Subhrojyoti Roy" name="keywords"/>
-<meta content="Pradipta Pal" name="author"/>
-<meta content="index, follow" name="robots"/>
-<link href="https://pradiptapal.github.io/" rel="canonical"/>
-<!-- Open Graph / Facebook -->
-<meta content="website" property="og:type"/>
-<meta content="https://pradiptapal.github.io/" property="og:url"/>
-<meta content="Pradipta Pal | Software Developer, Game Developer &amp; Entrepreneur" property="og:title"/>
-<meta content="Discover the portfolio of Pradipta Pal: Founder of Quantum Core Gaming Studio, B.Pharm student at Vidyasagar Pharmaceutical College, and full-stack software engineer." property="og:description"/>
-<meta content="pradipta_pal_image.jpeg" property="og:image"/>
-<meta content="Pradipta Pal Portfolio" property="og:site_name"/>
-<!-- Twitter Card -->
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="https://pradiptapal.github.io/" name="twitter:url"/>
-<meta content="Pradipta Pal | Software Developer, Game Developer &amp; Entrepreneur" name="twitter:title"/>
-<meta content="Discover the portfolio of Pradipta Pal: Founder of Quantum Core Gaming Studio, B.Pharm student at Vidyasagar Pharmaceutical College, and full-stack software engineer." name="twitter:description"/>
-<meta content="pradipta_pal_image.jpeg" name="twitter:image"/>
-<!-- Favicon -->
-<link href="company_logo_round_cutout.png" rel="icon" type="image/png"/>
-<!-- Font Awesome Icons -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<!-- Custom CSS -->
-<link href="style.css" rel="stylesheet"/>
-<!-- Schema.org Structured Data (JSON-LD) -->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Pradipta Pal",
-    "alternateName": "Prodipto Pal",
-    "url": "https://pradiptapal.github.io/",
-    "image": "pradipta_pal_image.jpeg",
-    "jobTitle": ["Software Developer", "Game Developer", "Entrepreneur", "B.Pharm Student"],
-    "description": "Software Developer, Game Developer, Entrepreneur, and B.Pharm Student. Founder of Quantum Core Gaming Studio and former founder of Blue Whale Store.",
-    "almaMater": [
-      {
-        "@type": "CollegeOrUniversity",
-        "name": "Vidyasagar Pharmaceutical College",
-        "url": "https://vidyasagarpharmacy.example.edu"
-      },
-      {
-        "@type": "School",
-        "name": "Bongaon High School",
-        "url": "https://bongaonhighschool.example.edu"
-      }
-    ],
-    "worksFor": [
-      {
-        "@type": "Organization",
-        "name": "Quantum Core Gaming Studio",
-        "url": "https://quantamcorestudio.github.io/quantam-core-website/"
-      }
-    ],
-    "sameAs": [
-      "https://github.com/pradipta-pal",
-      "https://www.instagram.com/prodipto_pal/",
-      "https://www.facebook.com/prodipto.pal.pp",
-      "https://www.linkedin.com/in/pradipta-pal-a05b432a2/",
-      "https://play.google.com/store/apps/dev?id=placeholder"
-    ]
-  }
-  </script>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        a:hover {
+            color: #fff;
+            text-shadow: var(--glow);
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 13, 18, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container img {
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5%;
+            background-image: url('Asset/company%20bannar%20or%20header.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(13, 13, 18, 0.5), var(--bg-color));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff, var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-text {
+            background: var(--surface-color);
+            padding: 3.5rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .about-text h3 {
+            color: #fff;
+            font-size: 1.8rem;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .portfolio-item {
+            background: var(--surface-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 229, 255, 0.15);
+            border-color: rgba(0, 229, 255, 0.3);
+        }
+
+        .portfolio-media.logo-thumbnail {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+        }
+
+        .portfolio-media.logo-thumbnail img {
+            max-width: 160px;
+            max-height: 160px;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            object-fit: contain;
+            transition: transform 0.6s ease;
+        }
+
+        .portfolio-item:hover .portfolio-media.logo-thumbnail img {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .portfolio-info {
+            padding: 2rem;
+        }
+
+        .portfolio-info h3 {
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+        
+        .portfolio-info p.click-hint {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.85); 
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background-color: var(--surface-color);
+            margin: 5% auto; 
+            padding: 0;
+            border: 1px solid rgba(255,255,255,0.1);
+            width: 90%;
+            max-width: 800px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.9);
+            animation: modalFadeIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+        }
+
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(50px) scale(0.95);}
+            to {opacity: 1; transform: translateY(0) scale(1);}
+        }
+
+        .close-modal {
+            color: #fff;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .close-modal:hover {
+            background: var(--primary-color);
+            color: #000;
+            transform: rotate(90deg);
+        }
+
+        .modal-preview {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+            background-color: #050508;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .modal-info {
+            padding: 2.5rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .modal-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            flex-shrink: 0;
+        }
+
+        .modal-text-content h3 {
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .modal-text-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Team Section */
+        .team-photo-wrapper {
+            margin-bottom: 5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .team-photo-wrapper img {
+            max-width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .team-photo-wrapper img:hover {
+            transform: scale(1.02);
+        }
+
+        .founder {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            background: rgba(26, 26, 36, 0.4);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.02);
+        }
+
+        .founder.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .founder-photo {
+            flex: 0 0 400px;
+            position: relative;
+        }
+
+        .founder-photo img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            object-fit: cover;
+            aspect-ratio: 4/5;
+        }
+
+        .founder-photo img:hover {
+            transform: scale(1.03) translateY(-10px);
+            box-shadow: 0 25px 45px rgba(0, 229, 255, 0.2);
+        }
+
+        .founder-info {
+            flex: 1;
+        }
+
+        .founder-info h3 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-info h4 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--surface-color), #050508);
+            text-align: center;
+            padding: 6rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.03);
+            padding: 3rem;
+            border-radius: 20px;
+            min-width: 280px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.08);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(0, 229, 255, 0.1);
+        }
+
+        .contact-card i {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .contact-card h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-card p, .contact-card a {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: #000;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        @media (max-width: 992px) {
+            .founder, .founder.reverse {
+                flex-direction: column;
+                text-align: center;
+                gap: 2.5rem;
+            }
+            .founder-photo {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 400px;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            section {
+                padding: 4rem 5%;
+            }
+            .modal-info {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        /* 3-Dot Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0 0.5rem;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .dropbtn:hover {
+            color: var(--primary-color);
+            text-shadow: var(--glow);
+        }
+
+        .dropdown-content {
+            display: block;
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: var(--surface-color);
+            min-width: 180px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            z-index: 1001;
+            overflow: hidden;
+            margin-top: 0.5rem;
+            transform: translateY(10px);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .dropdown.active .dropdown-content {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            color: var(--text-muted) !important;
+            padding: 0.8rem 1.2rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: none !important;
+            letter-spacing: 0.5px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255,255,255,0.05);
+            color: var(--primary-color) !important;
+            text-shadow: none !important;
+        }
+
+
+    </style>
+    <!-- Simple Icons for Contact -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- Canvas Particle Background -->
-<canvas id="particle-canvas"></canvas>
-<!-- Glowing Radial Blobs -->
-<div class="bg-glow-blob blob-1"></div>
-<div class="bg-glow-blob blob-2"></div>
-<div class="bg-glow-blob blob-3"></div>
-<!-- Sticky Header & Navigation Bar -->
-<header class="navbar" id="navbar">
-<div class="container nav-container">
-<a aria-label="Pradipta Pal Home" class="nav-logo" href="#home">
-<img alt="Pradipta Pal Logo Emblem" class="nav-logo-icon" src="company_logo_round_cutout.png"/>
-<span>Pradipta <span class="gradient-text">Pal</span></span>
-</a>
-<nav aria-label="Main Navigation" class="nav-links">
-<a class="nav-link active" href="#home">Home</a>
-<a class="nav-link" href="#about">About Me</a>
-<a class="nav-link" href="#education">Education</a>
+
+    <nav>
+        <div class="logo-container">
+            <img src="Asset/Company%20logo.jpeg" alt="Quantam Core Logo">
+            <h2 style="margin:0; font-size: 1.5rem; background: #fff; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Quantam Core</h2>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#portfolio">Games</a>
+            <a href="#team">Team</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <div class="dropdown">
+                <button class="dropbtn" id="dropdownBtn" aria-label="More Menu">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+                <div class="dropdown-content" id="dropdownContent">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1 style="font-family: 'Outfit', sans-serif;">Quantam Core</h1>
+            <p>Pushing the Boundaries of Interactive Entertainment</p>
+        </div>
+    </header>
+
+    <!-- SECTION ORDER: Games -> Team -> About -> Contact -->
+
+    <section id="portfolio">
+        <h2>Games & Applications</h2>
+        <div class="portfolio-grid">
+            <!-- Carrom King -->
+            <div class="portfolio-item" 
+                 data-title="Carrom King" 
+                 data-desc="Experience the classic board game with stunning graphics and smooth gameplay. Challenge friends and dominate the board!" 
+                 data-logo="Asset/carrom%20king%20game%20logo%20.png" 
+                 data-preview="Asset/Carrom%20King%20gameplay%20.jpeg">
+                <div class="portfolio-media logo-thumbnail">
+                    <img src="Asset/carrom%20king%20game%20logo%20.png" alt="Carrom King Logo">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Carrom King</h3>
+                    <p class="click-hint">Click to view Details</p>
+                </div>
+            </div>
+
+            <!-- Fruit Strike -->
+            <div class="portfolio-item" 
+                 data-title="Fruit Strike" 
+                 data-desc="Slice and dice your way through juicy fruits in this fast-paced action game. Can you beat the high score?" 
+                 data-logo="Asset/Fruit%20Strike%20game%20logo.png" 
+                 data-preview="Asset/Fruit%20strike%20gameplay.jpeg">
+                <div class="portfolio-media logo-thumbnail">
+                    <img src="Asset/Fruit%20Strike%20game%20logo.png" alt="Fruit Strike Logo">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Fruit Strike</h3>
+                    <p class="click-hint">Click to view Details</p>
+                </div>
+            </div>
+
+            <!-- Shadow Strike -->
+            <div class="portfolio-item" 
+                 data-title="Shadow Strike" 
+                 data-desc="Immersive action and thrilling combat await in our premier action title. Step into the shadows and strike." 
+                 data-logo="Asset/Shadow%20strike%20game%20logo.png" 
+                 data-preview="Asset/Shadow%20strike%20gameplay%20.jpeg">
+                <div class="portfolio-media logo-thumbnail">
+                    <img src="Asset/Shadow%20strike%20game%20logo.png" alt="Shadow Strike Logo">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Shadow Strike</h3>
+                    <p class="click-hint">Click to view Details</p>
+                </div>
+            </div>
+
+            <!-- Editing Master Pro -->
+            <div class="portfolio-item" 
+                 data-title="Editing Master Pro" 
+                 data-desc="Professional grade editing tools right in the palm of your hand. Create masterpieces with ease and precision." 
+                 data-logo="Asset/Editing%20Master%20pro%20app%20logo%20.png" 
+                 data-preview="Asset/Editing%20Master%20pro%20app%20previews.jpeg">
+                <div class="portfolio-media logo-thumbnail">
+                    <img src="Asset/Editing%20Master%20pro%20app%20logo%20.png" alt="Editing Master Pro Logo">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Editing Master Pro</h3>
+                    <p class="click-hint">Click to view Details</p>
+                </div>
+            </div>
+
+            <!-- Tycoon Empire -->
+            <div class="portfolio-item" 
+                 data-title="Tycoon Empire" 
+                 data-desc="Build your business empire from the ground up! Manage resources and grow your startup into a global powerhouse." 
+                 data-logo="Asset/Tycoon%20Empire%20gae%20logo.png" 
+                 data-preview="Asset/Tycoon%20Empire%20gameplay.jpeg">
+                <div class="portfolio-media logo-thumbnail">
+                    <img src="Asset/Tycoon%20Empire%20gae%20logo.png" alt="Tycoon Empire Logo">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Tycoon Empire</h3>
+                    <p class="click-hint">Click to view Details</p>
+                </div>
+            </div>
+
+            <!-- Nexus Boost -->
+            <div class="portfolio-item" 
+                 data-title="Nexus Boost" 
+                 data-desc="Optimize your device's performance, clear junk files, and boost your battery life with Nexus Boost." 
+                 data-logo="Asset/Nexus%20boost%20app%20logo.png" 
+                 data-preview="Asset/Nexux%20Boost%20app%20preview.jpeg">
+                <div class="portfolio-media logo-thumbnail">
+                    <img src="Asset/Nexus%20boost%20app%20logo.png" alt="Nexus Boost Logo">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Nexus Boost</h3>
+                    <p class="click-hint">Click to view Details</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-<a class="nav-link" href="#projects">Projects</a>
+
+
+    <section id="team">
+        <h2>Meet The Team</h2>
+        
+        <div class="team-photo-wrapper">
+            <img src="Asset/Team.jpeg" alt="Quantam Core Studio Team">
+        </div>
+
+        <!-- Prodipto Pal -->
+        <div class="founder">
+            <div class="founder-photo">
+                <a href="https://www.instagram.com/prodipto_pal/" target="_blank" rel="noopener noreferrer">
+                    <img src="Asset/Pradipta%20pal%201.jpeg" alt="Prodipto Pal - Co-Founder, Lead Game Developer & Creative Strategist">
+                </a>
+            </div>
+            <div class="founder-info">
+                <a href="https://www.instagram.com/prodipto_pal/" target="_blank" rel="noopener noreferrer">
+                    <h3>Prodipto Pal</h3>
+                </a>
+                <h4>Co-Founder, Lead Game Developer & Creative Strategist</h4>
+                <p>Prodipto Pal is a co-founder of Quantam Core and one of the primary driving forces behind the company’s game and application development. He plays a central role in designing, developing, and managing projects using modern development technologies and AI-assisted workflows.</p>
+                <p>His contributions include gameplay systems, application functionality, creative planning, feature implementation, and overall product development. With a strong focus on innovation and execution, he helps transform ideas into interactive digital experiences while maintaining the creative direction of the studio.</p>
+            </div>
+        </div>
+
+        <!-- Tanay Halder -->
+        <div class="founder reverse">
+            <div class="founder-photo">
+                <a href="https://www.instagram.com/tanay.img?igsh=MWl0ZWZxa2J3cXFxOA==" target="_blank" rel="noopener noreferrer">
+                    <img src="Asset/tanay%20halder.jpeg" alt="Tanay Halder - Co-Founder, Technical Architect & Systems Developer">
+                </a>
+            </div>
+            <div class="founder-info">
+                <a href="https://www.instagram.com/tanay.img?igsh=MWl0ZWZxa2J3cXFxOA==" target="_blank" rel="noopener noreferrer">
+                    <h3>Tanay Halder</h3>
+                </a>
+                <h4>Co-Founder, Technical Architect & Systems Developer</h4>
+                <p>Tanay Halder is a co-founder of Quantam Core and is responsible for the technical architecture and system stability of the company’s projects. He specializes in backend systems, cloud technologies, cybersecurity, debugging, optimization, and development infrastructure.</p>
+                <p>He contributes heavily to solving technical challenges, improving application performance, fixing critical issues, and building scalable systems that support the company’s games and applications. His experience in programming, automation, and security helps ensure reliable and efficient project execution across the studio.</p>
+            </div>
+        </div>
+
+        <!-- Shubhrajyoti -->
+        <div class="founder">
+            <div class="founder-photo">
+                <a href="https://www.instagram.com/subhrajoyti_official?igsh=MXh0dno1cmU2MDVleg==" target="_blank" rel="noopener noreferrer">
+                    <img src="Asset/subhrojoty.jpeg" alt="Shubhrajyoti - Executive Producer, Creative Director & Brand Representative">
+                </a>
+            </div>
+            <div class="founder-info">
+                <a href="https://www.instagram.com/subhrajoyti_official?igsh=MXh0dno1cmU2MDVleg==" target="_blank" rel="noopener noreferrer">
+                    <h3>Shubhrajyoti</h3>
+                </a>
+                <h4>Executive Producer, Creative Director & Brand Representative</h4>
+                <p>Shubhrajyoti is responsible for the creative production and visual presentation of Quantam Core’s projects. He contributes to editing direction, promotional planning, creative presentation, and the overall artistic identity of the company.</p>
+                <p>He also represents Quantam Core in promotional campaigns and ad shoots, helping strengthen the company’s public image and brand presence. His creative involvement helps deliver polished, engaging, and professional experiences across both media and production.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about-text">
+            <h3>About Quantam Core</h3>
+            <p>Quantam Core is an emerging game development and mobile application company based in Bongaon, West Bengal, India. Founded on September 17, 2025, the company is driven by a passion for innovation, creativity, and technology. With a strong focus on delivering engaging digital experiences, Quantam Core specializes in developing high-quality games using the Unity engine, alongside modern mobile applications built with advanced development tools such as Android Studio and Google Antigravity.</p>
+            <p>The company was established with the ambition to create impactful and widely recognized digital products that resonate with global audiences. By combining technical expertise with creative storytelling, Quantam Core aims to push the boundaries of interactive entertainment. The team is dedicated to continuous learning, experimentation, and improvement, ensuring that every project reflects both quality and originality.</p>
+            
+            <h3 style="margin-top: 3rem;">Our Vision</h3>
+            <p>The vision of Quantam Core is to become a globally recognized name in the gaming and application development industry. The company strives to create innovative, immersive, and high-performance digital experiences that not only entertain but also inspire users worldwide.</p>
+            <p>Quantam Core envisions building a strong portfolio of successful games and applications that stand out in competitive markets, while also establishing a sustainable and scalable business model. Through dedication, creativity, and technological excellence, the goal is to transform ideas into powerful digital realities and contribute meaningfully to the future of interactive media.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p style="color: #fff; font-size: 1.2rem; margin-bottom: 2rem;">Get in touch with us for business inquiries, support, or just to say hi.</p>
+        
+        <div class="contact-methods">
+            <div class="contact-card">
+                <i class="fa-solid fa-envelope"></i>
+                <h4>Email</h4>
+                <a href="mailto:quantamcorestudio@gmail.com">quantamcorestudio@gmail.com</a>
+            </div>
+            
+            <div class="contact-card">
+                <i class="fa-solid fa-phone"></i>
+                <h4>Mobile</h4>
+                <a href="tel:6297550231">6297550231</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Quantam Core Studio. All rights reserved.</p>
+    </footer>
+
+    <!-- Game/App Details Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modalPreview" src="" alt="Gameplay Preview" class="modal-preview">
+            <div class="modal-info">
+                <img id="modalLogo" src="" alt="Game Logo" class="modal-logo">
+                <div class="modal-text-content">
+                    <h3 id="modalTitle">Game Title</h3>
+                    <p id="modalDesc">Game Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Reveal elements on scroll
+            const revealElements = document.querySelectorAll('.founder, .portfolio-item, .about-text');
+            const revealCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+            revealElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(40px)';
+                el.style.transition = `opacity 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) ${index % 2 === 0 ? '0s' : '0.1s'}, transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) ${index % 2 === 0 ? '0s' : '0.1s'}`;
+                revealObserver.observe(el);
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Navbar Dropdown Toggle Logic
+            const dropdown = document.querySelector('.dropdown');
+            const dropdownBtn = document.getElementById('dropdownBtn');
+
+            dropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+                if (dropdown.classList.contains('active')) {
+                    dropdown.classList.remove('active');
+                }
+            });
+
+            // Game/App Modal Logic
+            const modal = document.getElementById("gameModal");
+            const btnClose = document.querySelector(".close-modal");
+            const items = document.querySelectorAll(".portfolio-item");
+
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    document.getElementById("modalPreview").src = item.getAttribute('data-preview');
+                    document.getElementById("modalLogo").src = item.getAttribute('data-logo');
+                    document.getElementById("modalTitle").innerText = item.getAttribute('data-title');
+                    document.getElementById("modalDesc").innerText = item.getAttribute('data-desc');
+                    modal.style.display = "block";
+                });
+            });
+
+            btnClose.onclick = function() {
+                modal.style.display = "none";
+            }
 
 
 
-<a class="nav-link" href="#achievements">Achievements</a>
-<a class="nav-link" href="#contact">Contact</a>
-</nav>
-<div class="nav-actions">
-<button aria-label="Toggle Light/Dark Theme" class="theme-toggle-btn" id="theme-toggle-btn">
-<i class="fas fa-moon"></i>
-</button>
-<button aria-label="Open Mobile Navigation Menu" class="mobile-menu-btn" id="mobile-menu-btn">
-<i class="fas fa-bars"></i>
-</button>
-</div>
-</div>
-</header>
-<!-- Mobile Navigation Drawer -->
-<div class="mobile-nav" id="mobile-nav">
-<a class="nav-link" href="#home">Home</a>
-<a class="nav-link" href="#about">About Me</a>
-<a class="nav-link" href="#education">Education</a>
-<a class="nav-link" href="#skills">Skills</a>
-<a class="nav-link" href="#companies">Companies</a>
-<a class="nav-link" href="#projects">Projects</a>
-<a class="nav-link" href="#team">Team</a>
-<a class="nav-link" href="#gallery">Gallery</a>
-<a class="nav-link" href="#timeline">Timeline</a>
-<a class="nav-link" href="#achievements">Achievements</a>
-<a class="nav-link" href="#contact">Contact</a>
-</div>
-<main>
-<!-- HERO SECTION -->
-<section class="hero" id="home">
-<div class="container hero-grid">
-<!-- LEFT COLUMN: Profile Image + Name + Subtitle under image -->
-<div class="hero-left-col">
-<div class="hero-visual">
-<div class="profile-avatar-container">
-<div class="profile-avatar-ring"></div>
-<div class="profile-avatar-inner">
-<img alt="Pradipta Pal Circular Profile Portrait" class="profile-avatar-img" src="pradipta_pal_image.jpeg"/>
-</div>
-<div class="profile-status-pill">
-<span class="status-dot"></span>
-<span>Open to Projects</span>
-</div>
-</div>
-</div>
-<div class="hero-identity-box">
-<div class="pronunciation-badge" id="pronunciation-badge" title="Click to hear pronunciation">
-<i class="fas fa-volume-high"></i>
-<span>Pronounced "Prodipto Pal"</span>
-</div>
-<h1 class="hero-name">
-<span class="gradient-text">Pradipta Pal</span>
-</h1>
-<div class="hero-subtitle-wrapper">
-<span>I am a</span>
-<span class="typing-text" id="typing-text">Software Developer</span>
-</div>
-</div>
-</div>
-<!-- RIGHT COLUMN: Experience / Stats Data + Bio + CTAs + Socials -->
-<div class="hero-right-col">
-<!-- Animated Statistics Cards Grid -->
-<div class="glass-card hero-stats-card">
-<div class="stats-grid" id="stats-grid">
-<div class="stat-item">
-<div class="stat-number" data-target="4">4<span>+</span></div>
-<div class="stat-label">Years Experience</div>
-</div>
-<div class="stat-item">
-<div class="stat-number" data-target="18">18<span>+</span></div>
-<div class="stat-label">Projects Completed</div>
-</div>
-<div class="stat-item">
-<div class="stat-number" data-target="5">5<span></span></div>
-<div class="stat-label">Ventures Founded</div>
-</div>
-<div class="stat-item">
-<div class="stat-number" data-target="5000">5000<span>+</span></div>
-<div class="stat-label">Community Reach</div>
-</div>
-</div>
-</div>
-<p class="hero-bio">
-            Passionate Software &amp; Game Developer, B.Pharm Student at 
-            <a class="hyperlink-tag" href="https://vidyasagarpharmacy.example.edu" rel="noopener" target="_blank">Vidyasagar Pharmaceutical College</a>, 
-            and Founder of 
-            <a class="hyperlink-tag" href="https://quantamcorestudio.github.io/quantam-core-website/" rel="noopener" target="_blank">Quantum Core Gaming Studio</a>.
-          </p>
-<div class="hero-cta">
-<a class="btn btn-primary" href="#projects">
-<i class="fas fa-rocket"></i> Explore Work
-            </a>
-<a class="btn btn-secondary" href="#contact">
-<i class="fas fa-paper-plane"></i> Get in Touch
-            </a>
-</div>
-<div class="hero-socials">
-<a class="social-icon-btn" href="mailto:pradiptapal.official@gmail.com" title="Gmail"><i class="fas fa-envelope"></i></a>
-<a class="social-icon-btn" href="https://github.com/pradipta-pal" rel="noopener" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-<a class="social-icon-btn" href="https://www.linkedin.com/in/pradipta-pal-a05b432a2/" rel="noopener" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<a class="social-icon-btn" href="https://play.google.com/store/apps/dev?id=placeholder" rel="noopener" target="_blank" title="Google Play Developer"><i class="fab fa-google-play"></i></a>
-<a class="social-icon-btn" href="https://www.instagram.com/prodipto_pal/" rel="noopener" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-<a class="social-icon-btn" href="https://www.facebook.com/prodipto.pal.pp" rel="noopener" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-</div>
-</div>
-</div>
-</section>
-<!-- ABOUT ME SECTION -->
-<section class="section-padding" id="about">
-<div class="container">
-<div class="section-header">
-<span class="section-tag">Biography</span>
-<h2 class="section-title">About <span class="gradient-text">Me</span></h2>
-<p class="section-desc">Bridging technology, game development, entrepreneurship, and pharmaceutical sciences.</p>
-</div>
-<div class="about-grid">
-<div class="about-gallery-stack">
-<div class="about-img-box">
-<img alt="Pradipta Pal Portrait 2" loading="lazy" src="pradipta_pal_image_2.webp"/>
-</div>
-<div class="about-img-box">
-<img alt="Pradipta Pal Outdoor Photo" loading="lazy" src="pradipta_pal_image_3.jpeg"/>
-</div>
-<div class="about-img-box tall">
-<img alt="Pradipta Pal Development Setup" loading="lazy" src="pc_setup.jpeg"/>
-</div>
-</div>
-<div class="about-text-content">
-<p class="about-paragraph">
-              Hello! I am <strong>Pradipta Pal</strong> (pronounced "Prodipto Pal"), a multi-disciplinary tech enthusiast and entrepreneur currently pursuing a Bachelor of Pharmacy (B.Pharm) at 
-              <a class="hyperlink-tag" href="https://vidyasagarpharmacy.example.edu" rel="noopener" target="_blank">Vidyasagar Pharmaceutical College</a>. My foundational science and computer journey began during my schooling at 
-              <a class="hyperlink-tag" href="https://bongaonhighschool.example.edu" rel="noopener" target="_blank">Bongaon High School</a>.
-            </p>
-<p class="about-paragraph">
-              I established my first business, 
-              <a class="hyperlink-tag" href="https://bluewhalestore.example.com" rel="noopener" target="_blank">Blue Whale Store</a>, serving digital gaming merchandise and tech products. Driven by a passion for game engineering, I co-founded 
-              <a class="hyperlink-tag" href="https://quantamcorestudio.github.io/quantam-core-website/" rel="noopener" target="_blank">Quantum Core Gaming Studio</a> alongside my esteemed team members 
-              <a class="hyperlink-tag" href="https://github.com/tanayhalder-placeholder" rel="noopener" target="_blank">Tanay Halder</a> and 
-              <a class="hyperlink-tag" href="https://github.com/subhrojyotiroy-placeholder" rel="noopener" target="_blank">Subhrojyoti Roy</a>.
-            </p>
-<div class="about-highlights">
-<div class="highlight-box">
-<i class="fas fa-gamepad highlight-icon"></i>
-<div class="highlight-info">
-<h5>Game Developer</h5>
-<p>Unity, Physics &amp; 3D Shaders</p>
-</div>
-</div>
-<div class="highlight-box">
-<i class="fas fa-code highlight-icon"></i>
-<div class="highlight-info">
-<h5>Software Engineer</h5>
-<p>Full-Stack &amp; Mobile Apps</p>
-</div>
-</div>
-<div class="highlight-box">
-<i class="fas fa-briefcase highlight-icon"></i>
-<div class="highlight-info">
-<h5>Entrepreneur</h5>
-<p>Studio &amp; E-Commerce Founder</p>
-</div>
-</div>
-<div class="highlight-box">
-<i class="fas fa-capsules highlight-icon"></i>
-<div class="highlight-info">
-<h5>B.Pharm Student</h5>
-<p>Pharmaceutics &amp; Scientific Tech</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- EDUCATION SECTION -->
-<section class="section-padding" id="education">
-<div class="container">
-<div class="section-header">
-<span class="section-tag">Academic Journey</span>
-<h2 class="section-title">My <span class="gradient-text">Education</span></h2>
-<p class="section-desc">Solid foundations in pharmaceutical sciences, computer science, and analytical thinking.</p>
-</div>
-<div class="education-grid">
-<!-- B.Pharm College Card -->
-<div class="glass-card edu-card reveal">
-<div>
-<span class="edu-badge">Current Academic Pursuit</span>
-<h3 class="edu-title">Bachelor of Pharmacy (B.Pharm)</h3>
-<a class="edu-institution-link" href="https://vidyasagarpharmacy.example.edu" rel="noopener" target="_blank">
-<i class="fas fa-university"></i> Vidyasagar Pharmaceutical College
-              </a>
-<p class="edu-desc">
-                Engaged in deep study of Pharmacology, Medicinal Chemistry, Pharmaceutics, Clinical Research, and computational drug formulation algorithms. Fusing data science and software tools with healthcare solutions.
-              </p>
-</div>
-</div>
-<!-- High School Card -->
-<div class="glass-card edu-card reveal">
-<div>
-<span class="edu-badge">Secondary &amp; Higher Secondary</span>
-<h3 class="edu-title">Science &amp; Technology Foundation</h3>
-<a class="edu-institution-link" href="https://bongaonhighschool.example.edu" rel="noopener" target="_blank">
-<i class="fas fa-school"></i> Bongaon High School
-              </a>
-<p class="edu-desc">
-                Completed secondary and higher secondary education with major focus on Physics, Chemistry, Mathematics, and Computer Science. Participated in science exhibitions, logic competitions, and programming clubs.
-              </p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- SKILLS SECTION -->
-
-<!-- COMPANIES SECTION -->
-
-<!-- PROJECTS SECTION -->
-<section class="section-padding" id="projects">
-<div class="container">
-<div class="section-header">
-<span class="section-tag">Featured Work</span>
-<h2 class="section-title">Projects &amp; <span class="gradient-text">Creations</span></h2>
-<p class="section-desc">A selection of game titles, software tools, e-commerce platforms, and workstations.</p>
-</div>
-<div class="projects-grid">
-<div class="glass-card project-card reveal active">
-<div class="project-thumb-box">
-<img alt="Carrom King" class="project-thumb-img" src="https://quantamcorestudio.github.io/quantam-core-website/Asset/carrom%20king%20game%20logo%20.png"/>
-<span class="project-category-badge">Quantum Core Game</span>
-</div>
-<div class="project-body">
-<h3 class="project-title">Carrom King</h3>
-<p class="project-desc">Experience the classic board game with stunning graphics and smooth gameplay. Challenge friends and dominate the board!</p>
-<a class="project-link-btn" href="https://quantamcorestudio.github.io/quantam-core-website/" rel="noopener" target="_blank">
-                Learn More <i class="fas fa-arrow-right"></i>
-</a>
-</div>
-</div>
-<div class="glass-card project-card reveal active">
-<div class="project-thumb-box">
-<img alt="Fruit Strike" class="project-thumb-img" src="https://quantamcorestudio.github.io/quantam-core-website/Asset/Fruit%20Strike%20game%20logo.png"/>
-<span class="project-category-badge">Quantum Core Game</span>
-</div>
-<div class="project-body">
-<h3 class="project-title">Fruit Strike</h3>
-<p class="project-desc">Slice and dice your way through juicy fruits in this fast-paced action game. Can you beat the high score?</p>
-<a class="project-link-btn" href="https://quantamcorestudio.github.io/quantam-core-website/" rel="noopener" target="_blank">
-                Learn More <i class="fas fa-arrow-right"></i>
-</a>
-</div>
-</div>
-<div class="glass-card project-card reveal active">
-<div class="project-thumb-box">
-<img alt="Shadow Strike" class="project-thumb-img" src="https://quantamcorestudio.github.io/quantam-core-website/Asset/Shadow%20strike%20game%20logo.png"/>
-<span class="project-category-badge">Quantum Core Game</span>
-</div>
-<div class="project-body">
-<h3 class="project-title">Shadow Strike</h3>
-<p class="project-desc">Immersive action and thrilling combat await in our premier action title. Step into the shadows and strike.</p>
-<a class="project-link-btn" href="https://quantamcorestudio.github.io/quantam-core-website/" rel="noopener" target="_blank">
-                Learn More <i class="fas fa-arrow-right"></i>
-</a>
-</div>
-</div>
-<div class="glass-card project-card reveal active">
-<div class="project-thumb-box">
-<img alt="Editing Master Pro" class="project-thumb-img" src="https://quantamcorestudio.github.io/quantam-core-website/Asset/Editing%20Master%20pro%20app%20logo%20.png"/>
-<span class="project-category-badge">Quantum Core Game</span>
-</div>
-<div class="project-body">
-<h3 class="project-title">Editing Master Pro</h3>
-<p class="project-desc">Professional grade editing tools right in the palm of your hand. Create masterpieces with ease and precision.</p>
-<a class="project-link-btn" href="https://quantamcorestudio.github.io/quantam-core-website/" rel="noopener" target="_blank">
-                Learn More <i class="fas fa-arrow-right"></i>
-</a>
-</div>
-</div>
-<div class="glass-card project-card reveal active">
-<div class="project-thumb-box">
-<img alt="Tycoon Empire" class="project-thumb-img" src="https://quantamcorestudio.github.io/quantam-core-website/Asset/Tycoon%20Empire%20gae%20logo.png"/>
-<span class="project-category-badge">Quantum Core Game</span>
-</div>
-<div class="project-body">
-<h3 class="project-title">Tycoon Empire</h3>
-<p class="project-desc">Build your business empire from the ground up! Manage resources and grow your startup into a global powerhouse.</p>
-<a class="project-link-btn" href="https://quantamcorestudio.github.io/quantam-core-website/" rel="noopener" target="_blank">
-                Learn More <i class="fas fa-arrow-right"></i>
-</a>
-</div>
-</div>
-<div class="glass-card project-card reveal active">
-<div class="project-thumb-box">
-<img alt="Nexus Boost" class="project-thumb-img" src="https://quantamcorestudio.github.io/quantam-core-website/Asset/Nexus%20boost%20app%20logo.png"/>
-<span class="project-category-badge">Quantum Core Game</span>
-</div>
-<div class="project-body">
-<h3 class="project-title">Nexus Boost</h3>
-<p class="project-desc">Optimize your device's performance, clear junk files, and boost your battery life with Nexus Boost.</p>
-<a class="project-link-btn" href="https://quantamcorestudio.github.io/quantam-core-website/" rel="noopener" target="_blank">
-                Learn More <i class="fas fa-arrow-right"></i>
-</a>
-</div>
-</div>
-</div>
-</div>
-<!-- Project 2 -->
-<!-- Project 3 -->
-</section>
-<!-- TEAM SECTION -->
-
-<!-- GALLERY SECTION -->
-
-<!-- TIMELINE SECTION -->
-
-<!-- ACHIEVEMENTS SECTION -->
-<section class="section-padding" id="achievements">
-<div class="container">
-<div class="section-header">
-<span class="section-tag">Recognitions</span>
-<h2 class="section-title">Key <span class="gradient-text">Achievements</span></h2>
-<p class="section-desc">Milestones achieved across technology, entrepreneurship, and pharmaceutical studies.</p>
-</div>
-<div class="achievements-grid">
-<div class="glass-card achievement-card reveal">
-<div class="achievement-icon"><i class="fas fa-trophy"></i></div>
-<h3 class="achievement-title">Founded 2 Tech Enterprises</h3>
-<span class="achievement-date">2021 - Present</span>
-<p class="achievement-desc">Successfully founded Blue Whale Store and active indie studio Quantum Core Gaming Studio.</p>
-</div>
-<div class="glass-card achievement-card reveal">
-<div class="achievement-icon"><i class="fas fa-gamepad"></i></div>
-<h3 class="achievement-title">Published Android Game Titles</h3>
-<span class="achievement-date">2023 - Present</span>
-<p class="achievement-desc">Engineered and released interactive game titles and utilities on Google Play Developer ecosystem.</p>
-</div>
-<div class="glass-card achievement-card reveal">
-<div class="achievement-icon"><i class="fas fa-graduation-cap"></i></div>
-<h3 class="achievement-title">Academic Merit in B.Pharm</h3>
-<span class="achievement-date">2022 - Present</span>
-<p class="achievement-desc">Maintaining high academic standing at Vidyasagar Pharmaceutical College while leading active tech projects.</p>
-</div>
-<div class="glass-card achievement-card reveal">
-<div class="achievement-icon"><i class="fas fa-users"></i></div>
-<h3 class="achievement-title">Team Leadership</h3>
-<span class="achievement-date">Ongoing</span>
-<p class="achievement-desc">Successfully co-leading development teams alongside Tanay Halder and Subhrojyoti Roy.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- CONTACT SECTION -->
-<section class="section-padding" id="contact">
-<div class="container">
-<div class="section-header">
-<span class="section-tag">Get In Touch</span>
-<h2 class="section-title">Contact <span class="gradient-text">Pradipta</span></h2>
-<p class="section-desc">Reach out for collaborations, game dev inquiries, software projects, or pharmaceutical tech discussions.</p>
-</div>
-<div class="contact-grid">
-<!-- Social Link Cards -->
-<div class="social-cards-grid">
-<a class="glass-card social-card reveal" href="mailto:pradiptapal.official@gmail.com">
-<i class="fas fa-envelope social-card-icon"></i>
-<div class="social-card-title">Gmail</div>
-<span style="font-size:0.75rem; color:var(--text-muted);">pradiptapal.official@gmail.com</span>
-</a>
-<a class="glass-card social-card reveal" href="https://github.com/pradipta-pal" rel="noopener" target="_blank">
-<i class="fab fa-github social-card-icon"></i>
-<div class="social-card-title">GitHub</div>
-<span style="font-size:0.75rem; color:var(--text-muted);">@pradiptapal</span>
-</a>
-<a class="glass-card social-card reveal" href="https://www.linkedin.com/in/pradipta-pal-a05b432a2/" rel="noopener" target="_blank">
-<i class="fab fa-linkedin-in social-card-icon"></i>
-<div class="social-card-title">LinkedIn</div>
-<span style="font-size:0.75rem; color:var(--text-muted);">Pradipta Pal</span>
-</a>
-<a class="glass-card social-card reveal" href="https://play.google.com/store/apps/dev?id=placeholder" rel="noopener" target="_blank">
-<i class="fab fa-google-play social-card-icon"></i>
-<div class="social-card-title">Google Play</div>
-<span style="font-size:0.75rem; color:var(--text-muted);">Developer Profile</span>
-</a>
-<a class="glass-card social-card reveal" href="https://www.instagram.com/prodipto_pal/" rel="noopener" target="_blank">
-<i class="fab fa-instagram social-card-icon"></i>
-<div class="social-card-title">Instagram</div>
-<span style="font-size:0.75rem; color:var(--text-muted);">@pradiptapal</span>
-</a>
-<a class="glass-card social-card reveal" href="https://www.facebook.com/prodipto.pal.pp" rel="noopener" target="_blank">
-<i class="fab fa-facebook-f social-card-icon"></i>
-<div class="social-card-title">Facebook</div>
-<span style="font-size:0.75rem; color:var(--text-muted);">Pradipta Pal</span>
-</a>
-</div>
-<!-- Interactive Contact Form -->
-<form class="glass-card contact-form reveal" id="contact-form">
-<h3 style="font-size:1.35rem; color:var(--text-primary);">Send a Message</h3>
-<div class="form-group">
-<label class="form-label" for="name">Your Name</label>
-<input class="form-input" id="name" placeholder="e.g. Alex Smith" required="" type="text"/>
-</div>
-<div class="form-group">
-<label class="form-label" for="email">Your Email</label>
-<input class="form-input" id="email" placeholder="e.g. alex@example.com" required="" type="email"/>
-</div>
-<div class="form-group">
-<label class="form-label" for="subject">Subject</label>
-<input class="form-input" id="subject" placeholder="Project collaboration / Game dev query" required="" type="text"/>
-</div>
-<div class="form-group">
-<label class="form-label" for="message">Message</label>
-<textarea class="form-textarea" id="message" placeholder="Write your message here..." required=""></textarea>
-</div>
-<button class="btn btn-primary" style="width: 100%;" type="submit">
-<i class="fas fa-paper-plane"></i> Send Message
-            </button>
-</form>
-</div>
-</div>
-</section>
-</main>
-<!-- LIGHTBOX MODAL -->
-<div aria-hidden="true" class="lightbox-modal" id="lightbox-modal" role="dialog">
-<button aria-label="Close Lightbox" class="lightbox-close-btn" id="lightbox-close-btn">×</button>
-<button aria-label="Previous Image" class="lightbox-nav-btn lightbox-prev-btn" id="lightbox-prev-btn">
-<i class="fas fa-chevron-left"></i>
-</button>
-<button aria-label="Next Image" class="lightbox-nav-btn lightbox-next-btn" id="lightbox-next-btn">
-<i class="fas fa-chevron-right"></i>
-</button>
-<div class="lightbox-content-box">
-<img alt="" class="lightbox-img" id="lightbox-img" src=""/>
-<div class="lightbox-caption" id="lightbox-caption"></div>
-</div>
-</div>
-<!-- TOAST NOTIFICATION -->
-<div class="toast-msg" id="toast-msg">
-<i class="fas fa-check-circle" style="color:var(--active-green); font-size:1.4rem;"></i>
-<div>
-<strong>Message Sent!</strong>
-<div style="font-size:0.85rem; color:var(--text-secondary);">Thank you for reaching out to Pradipta Pal.</div>
-</div>
-</div>
-<!-- FOOTER -->
-<footer class="footer">
-<div class="container footer-content">
-<a class="nav-logo" href="#home">
-<img alt="Pradipta Pal Footer Logo" class="nav-logo-icon" src="company_logo_round_cutout.png"/>
-<span>Pradipta <span class="gradient-text">Pal</span></span>
-</a>
-<p class="footer-copyright">
-        © <span id="year">2026</span> Pradipta Pal. All Rights Reserved. Built with HTML5, CSS3 &amp; JavaScript.
-      </p>
-<button aria-label="Back to top" class="back-to-top-btn" id="back-to-top-btn">
-<i class="fas fa-arrow-up"></i>
-</button>
-</div>
-</footer>
-<!-- Custom JavaScript -->
-<script src="script.js"></script>
+            // Close modal when clicking backgrounds
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
 </body>
 </html>
