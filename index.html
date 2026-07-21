@@ -4,7 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quantam Core | Game & App Development Studio</title>
-    <meta name="description" content="Quantam Core is an emerging game development and mobile application company based in Bongaon, West Bengal, India.">
+    <meta name="description" content="Quantam Core is an emerging game development and mobile application studio based in Bongaon, West Bengal. Co-founded by Prodipto Pal (Lead Game Developer) and Tanay Halder (Technical Architect, Systems Developer & Cybersecurity expert).">
+    <meta name="keywords" content="Quantam Core, Tanay Halder, Prodipto Pal, Shubhrajyoti, game development studio, technical architect, systems developer, backend systems, cybersecurity, cloud technologies, Unity engine, mobile applications, Bongaon, West Bengal">
+    
+    <!-- JSON-LD Schema.org Markup for Organization and Founders/Team -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://quantamcorestudio.github.io/quantam-core-website/#organization",
+          "name": "Quantam Core",
+          "url": "https://quantamcorestudio.github.io/quantam-core-website/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://quantamcorestudio.github.io/quantam-core-website/Asset/Company%20logo.jpeg"
+          },
+          "founder": [
+            {
+              "@type": "Person",
+              "name": "Prodipto Pal",
+              "jobTitle": "Co-Founder, Lead Game Developer & Creative Strategist",
+              "sameAs": [
+                "https://www.instagram.com/prodipto_pal/",
+                "https://quantamcorestudio.github.io/Pradipta-Pal-website/"
+              ]
+            },
+            {
+              "@type": "Person",
+              "name": "Tanay Halder",
+              "jobTitle": "Co-Founder, Technical Architect & Systems Developer",
+              "sameAs": [
+                "https://acid-sec.github.io/Tanay-Haldar/",
+                "https://www.linkedin.com/in/tanayhalda-r/",
+                "https://www.instagram.com/tanay.img/"
+              ]
+            }
+          ],
+          "employee": [
+            {
+              "@type": "Person",
+              "name": "Shubhrajyoti",
+              "jobTitle": "Executive Producer, Creative Director & Brand Representative",
+              "sameAs": [
+                "https://www.instagram.com/subhrajoyti_official/"
+              ]
+            }
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://quantamcorestudio.github.io/quantam-core-website/#tanayhalder",
+          "name": "Tanay Halder",
+          "jobTitle": "Co-Founder, Technical Architect & Systems Developer",
+          "worksFor": {
+            "@id": "https://quantamcorestudio.github.io/quantam-core-website/#organization"
+          },
+          "url": "https://acid-sec.github.io/Tanay-Haldar/",
+          "sameAs": [
+            "https://www.linkedin.com/in/tanayhalda-r/",
+            "https://www.instagram.com/tanay.img?igsh=MWl0ZWZxa2J3cXFxOA==",
+            "https://github.com/acid-sec"
+          ],
+          "description": "Tanay Halder is a co-founder of Quantam Core and is responsible for the technical architecture and system stability of the company’s projects. He specializes in backend systems, cloud technologies, cybersecurity, debugging, optimization, and development infrastructure."
+        },
+        {
+          "@type": "Person",
+          "@id": "https://quantamcorestudio.github.io/quantam-core-website/#prodiptopal",
+          "name": "Prodipto Pal",
+          "jobTitle": "Co-Founder, Lead Game Developer & Creative Strategist",
+          "worksFor": {
+            "@id": "https://quantamcorestudio.github.io/quantam-core-website/#organization"
+          },
+          "url": "https://quantamcorestudio.github.io/Pradipta-Pal-website/",
+          "sameAs": [
+            "https://www.instagram.com/prodipto_pal/"
+          ],
+          "description": "Prodipto Pal is a co-founder of Quantam Core and one of the primary driving forces behind the company’s game and application development. He plays a central role in designing, developing, and managing projects using modern development technologies and AI-assisted workflows."
+        }
+      ]
+    }
+    </script>
+
     <style>
         /* CSS resets and base variables */
         :root {
@@ -418,6 +500,67 @@
             text-transform: uppercase;
         }
 
+        /* Team Member Social Links & Skill Tags */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            text-transform: none !important;
+            letter-spacing: 0.5px;
+        }
+
+        .social-icon i {
+            font-size: 0.95rem;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            color: #000 !important;
+            border-color: var(--primary-color);
+            box-shadow: var(--glow);
+            text-shadow: none !important;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.2rem;
+        }
+
+        .skills-tags span {
+            background: rgba(0, 229, 255, 0.05);
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .skills-tags span:hover {
+            background: rgba(0, 229, 255, 0.15);
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+        }
+
         /* Contact Section */
         .contact {
             background: linear-gradient(135deg, var(--surface-color), #050508);
@@ -731,34 +874,67 @@
         <!-- Prodipto Pal -->
         <div class="founder">
             <div class="founder-photo">
-                <a href="https://www.instagram.com/prodipto_pal/" target="_blank" rel="noopener noreferrer">
+                <a href="https://quantamcorestudio.github.io/Pradipta-Pal-website/" target="_blank" rel="noopener noreferrer">
                     <img src="Asset/Pradipta%20pal%201.jpeg" alt="Prodipto Pal - Co-Founder, Lead Game Developer & Creative Strategist">
                 </a>
             </div>
             <div class="founder-info">
-                <a href="https://www.instagram.com/prodipto_pal/" target="_blank" rel="noopener noreferrer">
+                <a href="https://quantamcorestudio.github.io/Pradipta-Pal-website/" target="_blank" rel="noopener noreferrer">
                     <h3>Prodipto Pal</h3>
                 </a>
                 <h4>Co-Founder, Lead Game Developer & Creative Strategist</h4>
                 <p>Prodipto Pal is a co-founder of Quantam Core and one of the primary driving forces behind the company’s game and application development. He plays a central role in designing, developing, and managing projects using modern development technologies and AI-assisted workflows.</p>
                 <p>His contributions include gameplay systems, application functionality, creative planning, feature implementation, and overall product development. With a strong focus on innovation and execution, he helps transform ideas into interactive digital experiences while maintaining the creative direction of the studio.</p>
+                <div class="skills-tags">
+                    <span>Gameplay Design</span>
+                    <span>Game Development</span>
+                    <span>Creative Strategy</span>
+                    <span>Project Management</span>
+                    <span>AI Workflows</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://quantamcorestudio.github.io/Pradipta-Pal-website/" target="_blank" rel="noopener noreferrer" class="social-icon" title="Personal Website">
+                        <i class="fa-solid fa-globe"></i> Website
+                    </a>
+                    <a href="https://www.instagram.com/prodipto_pal/" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- Tanay Halder -->
         <div class="founder reverse">
             <div class="founder-photo">
-                <a href="https://www.instagram.com/tanay.img?igsh=MWl0ZWZxa2J3cXFxOA==" target="_blank" rel="noopener noreferrer">
+                <a href="https://acid-sec.github.io/Tanay-Haldar/" target="_blank" rel="noopener noreferrer">
                     <img src="Asset/tanay%20halder.jpeg" alt="Tanay Halder - Co-Founder, Technical Architect & Systems Developer">
                 </a>
             </div>
             <div class="founder-info">
-                <a href="https://www.instagram.com/tanay.img?igsh=MWl0ZWZxa2J3cXFxOA==" target="_blank" rel="noopener noreferrer">
+                <a href="https://acid-sec.github.io/Tanay-Haldar/" target="_blank" rel="noopener noreferrer">
                     <h3>Tanay Halder</h3>
                 </a>
                 <h4>Co-Founder, Technical Architect & Systems Developer</h4>
                 <p>Tanay Halder is a co-founder of Quantam Core and is responsible for the technical architecture and system stability of the company’s projects. He specializes in backend systems, cloud technologies, cybersecurity, debugging, optimization, and development infrastructure.</p>
                 <p>He contributes heavily to solving technical challenges, improving application performance, fixing critical issues, and building scalable systems that support the company’s games and applications. His experience in programming, automation, and security helps ensure reliable and efficient project execution across the studio.</p>
+                <div class="skills-tags">
+                    <span>Technical Architecture</span>
+                    <span>Systems Development</span>
+                    <span>Cybersecurity</span>
+                    <span>Cloud Solutions</span>
+                    <span>Backend Systems</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://acid-sec.github.io/Tanay-Haldar/" target="_blank" rel="noopener noreferrer" class="social-icon" title="Personal Website">
+                        <i class="fa-solid fa-globe"></i> Website
+                    </a>
+                    <a href="https://www.linkedin.com/in/tanayhalda-r/" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.instagram.com/tanay.img?igsh=MWl0ZWZxa2J3cXFxOA==" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -776,6 +952,18 @@
                 <h4>Executive Producer, Creative Director & Brand Representative</h4>
                 <p>Shubhrajyoti is responsible for the creative production and visual presentation of Quantam Core’s projects. He contributes to editing direction, promotional planning, creative presentation, and the overall artistic identity of the company.</p>
                 <p>He also represents Quantam Core in promotional campaigns and ad shoots, helping strengthen the company’s public image and brand presence. His creative involvement helps deliver polished, engaging, and professional experiences across both media and production.</p>
+                <div class="skills-tags">
+                    <span>Creative Production</span>
+                    <span>Artistic Identity</span>
+                    <span>Brand Representation</span>
+                    <span>Video Editing</span>
+                    <span>Music Direction</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/subhrajoyti_official?igsh=MXh0dno1cmU2MDVleg==" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                </div>
             </div>
         </div>
     </section>
